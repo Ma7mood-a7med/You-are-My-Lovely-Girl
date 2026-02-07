@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You are my lovely girl 💗</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(180deg, #ffd6e8, #ffffff);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    direction: rtl;
+    overflow-x: hidden;
+}
+
+.bg-image {
+    position: fixed;
+    inset: 0;
+    background: url("image.png") center/cover no-repeat;
+    opacity: 0.12;
+    z-index: -1;
+}
+
+.box {
+    width: 92%;
+    max-width: 380px;
+    background: white;
+    border-radius: 28px;
+    padding: 22px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    text-align: center;
+}
+
+h2 {
+    color: #ff4f9a;
+    margin-bottom: 10px;
+}
+
+.user-fixed {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    border-radius: 16px;
+    border: 1px solid #ddd;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 4px;
+}
+
+.password-hint {
+    margin-top: 8px;
+    color: #ff4f9a;
+    font-size: 14px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: #ff4f9a;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 17px;
+    margin-top: 15px;
+}
+
+.content {
+    display: none;
+}
+
+.love-card {
+    background: #fff5fa;
+    border-radius: 18px;
+    padding: 14px;
+    margin-bottom: 12px;
+    color: #555;
+    font-size: 15px;
+    line-height: 1.8;
+    box-shadow: 0 6px 15px rgba(255,79,154,0.15);
+}
+
+.music-frame {
+    margin: 18px 0;
+    padding: 14px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #ffb6d5, #ffe3ef);
+    box-shadow: 0 8px 20px rgba(255,79,154,0.3);
+}
+
+.music-frame p {
+    margin: 0 0 10px;
+    color: #ff2f86;
+    font-weight: bold;
+}
+
+audio {
+    width: 100%;
+}
+
+.heart {
+    position: fixed;
+    font-size: 18px;
+    animation: float 1.5s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes float {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-80px); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-image"></div>
+
+<div class="box" id="loginBox">
+    <h2>💗 دخول خاص 💗</h2>
+    <div class="user-fixed">You are my lovely girl</div>
+
+    <input type="password" id="password" placeholder="اكتبي الرقم">
+    <div class="password-hint">15 / 8</div>
+
+    <button onclick="login()">دخول</button>
+</div>
+
+<div class="box content" id="contentBox">
+    <h2>You are my lovely girl 🌸</h2>
+
+    <!-- 5 جمل -->
+    <div class="love-card">إنتِ الحاجة الحلوة اللي حصلتلي من غير ما أطلب 🤍</div>
+    <div class="love-card">قلبي اختارك قبل ما عقلي يفهم ليه 💗</div>
+    <div class="love-card">وجودك في حياتي مريح أكتر من أي أمان.</div>
+    <div class="love-card">إنتِ مش صدفة… إنتِ اختيار.</div>
+    <div class="love-card">كل مرة ببصلك بحس إن ربنا كان كريم أوي معايا.</div>
+
+    <!-- الأغنية -->
+    <div class="music-frame">
+        <p>🎶</p>
+        <audio id="song" loop>
+            <source src="song.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- 5 جمل -->
+    <div class="love-card">بحبك مش علشان محتاجك، بحبك علشان عاوزك.</div>
+    <div class="love-card">لو ليا عمر تاني، هختارك فيه من الأول.</div>
+    <div class="love-card">إنتِ أجمل حاجة في أي يوم عادي.</div>
+    <div class="love-card">أنا مطمن طول ما إنتِ هنا.</div>
+    <div class="love-card">ضحكتك كفاية تغيّر مزاج الدنيا كلها.</div>
+</div>
+
+<script>
+function login() {
+    const pass = document.getElementById("password").value;
+    if (pass === "158") {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("contentBox").style.display = "block";
+    } else {
+        alert("الرقم غلط 💔");
+    }
+}
+
+document.addEventListener("click", (e) => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = "💗";
+    heart.style.left = e.clientX + "px";
+    heart.style.top = e.clientY + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 1500);
+
+    const song = document.getElementById("song");
+    if (song.paused) song.play();
+});
+</script>
+
+</body>
+</html>
